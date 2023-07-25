@@ -1,10 +1,10 @@
 import React from "react";
 
 // Destructure the onUpdateItem prop
-function Item({ item, onUpdateItem }) {
+function Item({ item, onUpdateItem, onDeleteItem }) {
   function handleAddToCartClick() {
       // add fetch request
-      fetch(`http://localhost:4000/items/${item.id}`, {
+      fetch(`http://localhost:3000/items/${item.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -17,11 +17,11 @@ function Item({ item, onUpdateItem }) {
         .then((updatedItem) => onUpdateItem(updatedItem));
     }
   function handleDeleteClick() {
-    fetch(`http://localhost:4000/items/${item.id}`, {
+    fetch(`http://localhost:3000/items/${item.id}`, {
     method: "DELETE",
     })
     .then((r) => r.json())
-    .then(() => console.log("deleted!"))
+    .then(() => onDeleteItem(item))
   }
   
   return (

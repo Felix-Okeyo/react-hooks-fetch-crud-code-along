@@ -13,7 +13,7 @@ function ShoppingList() {
 
   //add useEffect hook
   useEffect(() => {
-    fetch("http://localhost:4000/items")
+    fetch("http://localhost:3000/items")
       .then((res) => res.json())
       .then((items) => setItems(items));
   }, []);
@@ -35,6 +35,11 @@ function ShoppingList() {
     setItems([...items, newItem]);
   }
 
+  function handleDeleteItem (deletedItem) {
+    const updatedItems = items.filter((item) => item.id !== deletedItem.id);
+    setItems(updatedItems);
+  }
+  
 
   const itemsToDisplay = items.filter((item) => {
     if (selectedCategory === "All") return true;
@@ -51,7 +56,12 @@ function ShoppingList() {
       />
       <ul className="Items">
         {itemsToDisplay.map((item) => (
-          <Item key={item.id} item={item} onUpdateItem={handleUpdateItem}/>
+          <Item 
+          key={item.id} 
+          item={item} 
+          onUpdateItem={handleUpdateItem}
+          onDeleteItem={handleDeleteItem}
+          />
         ))}
       </ul>
     </div>

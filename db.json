@@ -25,22 +25,10 @@
       "isInCart": false
     },
     {
-      "id": 5,
-      "name": "Swiss Cheese",
-      "category": "Dairy",
-      "isInCart": false
-    },
-    {
-      "id": 6,
-      "name": "Cookies",
-      "category": "Dessert",
-      "isInCart": false
-    },
-    {
-      "name": "Milk",
+      "name": "Mala",
       "category": "Dairy",
       "isInCart": false,
-      "id": 7
+      "id": 5
     }
   ]
 }
